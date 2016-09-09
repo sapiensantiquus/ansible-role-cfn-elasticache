@@ -2,7 +2,7 @@
 
 ## Playbook Parameters
 | Parameter        | Required           | Default  | Description |
-| ------------- |:---------:| -----------------:| -------------------------------------------------------------------------:|
+|:-------------:|:---------:|:-----------------:|:-------------------------------------------------------------------------:|
 | elasticache_stack_name | yes | none | Name for the ElastiCache CloudFormation stack |
 | elasticache_stack_description | yes | none | Description of the CloudFormation stack |
 | elasticache_tags | yes | none | Tags to apply to the CloudFormation stack |
@@ -13,12 +13,12 @@
 | elasticache_port | yes | 6379 | Port on which to run the cluster |
 | elasticache_az_mode | yes (redis only) | cross-az | Whether to use cross-az or single-az for the cluster |
 | elasticache_use_replicaton_group | no | none | Whether to use a replication group |
-| elasticache_failover_enabled | conditional; if elasticache_use_replicaton_group is "true", then required | true | Whether to enable failover for the cluster |
+| elasticache_failover_enabled | conditional | true | Whether to enable failover for the cluster. Required if <strong>elasticache_use_replicaton_group</strong> is true |
 | elasticache_preferred_zones | yes | us-west-2a, us-west-2b, us-west-2c | The preferred zones to use with the cluster |
 | elasticache_node_type | yes | cache.m3.medium | The instance type to use with the cluster instances |
 | elasticache_node_quantity | yes | 5 | The number of nodes to use in the cluster |
 | elasticache_disable_rollback | yes | true | Whether to prevent rollback of cluster changes |
-| elasticache_state | yes | present | Whether the CloudFormation stack should be <strong>present</strong> or <strong>absent</strong> | 
+| elasticache_state | yes | present | Whether the CloudFormation stack should be <strong>present</strong> or <strong>absent</strong> |
 | elasticache_build_dir | yes | <strong>playbook_dir</strong>/build | Directory in which to deposit temporary build artifacts |
 | elasticache_template_src | yes | <strong>playbook_dir</strong>/templates/elasticache.j2.json | Source template for CloudFormation stack |
 | elasticache_template_dest_tmp | yes | <strong>elasticache_build_dir</strong>/elasticache.json-tmp | Name of the temporary destination template |
